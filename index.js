@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
         info: 'Node.js Movie Store web API'
     })
 });
+
+const moviesDb = require('./movies');
+app.get('/api/movies', moviesDb.getMovies);
+
 app.listen(config.port, () => 
     console.log(`Example app listening on port ${config.port}!`)
 );
